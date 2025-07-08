@@ -1,14 +1,28 @@
-# import tkinter
-# import turtle
+import tkinter
+import turtle
 
-# window = tkinter.Tk()
-# window.title("GUI Converter")
-# window.minsize(400, 500)
+def button_clicked():
+    label_2 = tkinter.Label()
+    label_2.pack()
+    label_2.config(text=f"Distance of {user_input.get()} miles is {int(user_input.get())*1.6} km.")
 
-# label_1 = tkinter.Label(text="Insert distance in miles:", font=("Arial", 16, "bold"))
-# label_1.pack()
+window = tkinter.Tk()
+window.title("GUI Converter")
+window.minsize(400, 500)
 
-# window.mainloop()
+label_1 = tkinter.Label()
+label_1.pack()
+label_1.config(text="Insert distance in miles", font=("Arial", 16))
+
+user_input = tkinter.Entry()
+user_input.pack()
+user_input.config(width=10)
+
+button_1 = tkinter.Button()
+button_1.pack()
+button_1.config(text="Convert", bg="lightblue", command=button_clicked)
+
+window.mainloop()
     
     
     
