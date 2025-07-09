@@ -2,36 +2,33 @@ import tkinter
 import turtle
 
 def button_clicked():
-    label_2 = tkinter.Label()
-    label_2.pack()
-    label_2.config(text=f"Distance of {user_input.get()} miles is {int(user_input.get())*1.6} km.")
+    label_2.config(text=f"Distance of {user_input.get()} miles is\n{float(user_input.get())*1.6} km.", bg="#90cc90")
 
 window = tkinter.Tk()
 window.title("GUI Converter")
-window.minsize(400, 500)
+window.minsize(420, 200)
+window.config(bg="#90ee90")
 
 label_1 = tkinter.Label()
-label_1.pack()
-label_1.config(text="Insert distance in miles", font=("Arial", 16))
+label_1.config(text="Insert distance in miles", font=("Arial", 14), bg="#90ee90")
+label_1.grid(column=1, row=1, padx=15, pady=25)
 
 user_input = tkinter.Entry()
-user_input.pack()
-user_input.config(width=10)
+user_input.insert(0, "Insert miles no.")
+user_input.config(width=15, bg="#90cc90")
+user_input.grid(row=1, column=2, padx=50)
+
+label_2 = tkinter.Label()
+label_2.grid(row=4, column=2)
+label_2.config(bg="#90ee90")
 
 button_1 = tkinter.Button()
-button_1.pack()
-button_1.config(text="Convert", bg="lightblue", command=button_clicked)
+button_1.config(text="Convert", bg="white", command=button_clicked, width=10)
+button_1.grid(column=2, row=2)
 
 window.mainloop()
     
-    
-    
-    
-    
-    
-    
-    
-    
+
 # # def add(*args):
 # #     sum = 0
 # #     for n in args:
