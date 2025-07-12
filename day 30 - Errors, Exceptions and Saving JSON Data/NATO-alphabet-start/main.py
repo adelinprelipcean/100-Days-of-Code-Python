@@ -23,7 +23,7 @@
 import pandas
 
 #TODO 1. Create a dictionary in this format:
-data = pandas.read_csv("nato_phonetic_alphabet.csv")
+data = pandas.read_csv("../NATO-alphabet-start/nato_phonetic_alphabet.csv")
 
 alphabet_dict = {row.letter: row.code for (index, row) in data.iterrows()}
 
