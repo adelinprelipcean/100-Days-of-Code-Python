@@ -1,43 +1,53 @@
 import tkinter as tk
 import pandas
 import random
-import time
 
 BACKGROUND_COLOR = "#B1DDC6"
 
 window = tk.Tk()
-window.geometry('900x600')
-window.config(bg=BACKGROUND_COLOR)
+window.title("Flashy")
+window.config(bg=BACKGROUND_COLOR, padx=50, pady=50)
+window.resizable(False, False)
+words_no = [i for i in range(1, 101)]
 
 def generate_word():
-    flashcard = tk.Canvas(window, bg=BACKGROUND_COLOR, height=520, width=804, highlightthickness=0)
-    card_front = tk.PhotoImage(file="images/card_front.png")
-    flashcard.card_front_img = card_front
-    flashcard.create_image(0, 0, anchor='nw', image=card_front)
-    flashcard.place(x=47, y=10)
-    
-    data = pandas.read_csv('data/french_words.csv')
+    try:
+        data = pandas.read_csv('data/french_words.csv')
+        word_no = random.choice(words_no)
+        print(words_no)
+        
+        flashcard = tk.Canvas(window, bg=BACKGROUND_COLOR, height=526, width=800, highlightthickness=0)
+        card_front = tk.PhotoImage(file='images/card_front.png')
+        flashcard.card_front_img = card_front
+        flashcard.create_image(0, 0, anchor='nw', image=card_front)
+        flashcard_title = flashcard.create_text(400, 150, text=data.columns[0], font=('Arial', 40, 'italic'))
+        flashcard_word = flashcard.create_text(400, 263, text=data['French'][word_no], font=('Arial', 60, 'bold'))
+        flashcard.grid(row=0, column=0, columnspan=2)
 
-    language_label = tk.Label(window, text=data.columns[0], bg='white', font=('Arial', 24))
-    language_label.place(x=400, y=100)
-    
-    index = random.randint(0, 100)
-    
-    word_label = tk.Label(window, text=data['French'][index], bg='white', font=('Arial', 24, 'bold'))
-    word_label.place(x=400, y=250)
-    
-    def translate():
-        language_label.config(text=data.columns[1])
-        word_label.config(text=data['English'][index])
-
-    window.after(2000, translate)
-    
-    wrong_image = tk.PhotoImage
-    red_button = tk.Button(window, text='Wrong', bg='red', command=generate_word)
-    red_button.place(x=700, y=550)
-    green_button = tk.Button(window, text='Correct', bg='green', command=generate_word)
-    green_button.place(x=150, y=550)
+        def right_answer():
+            words_no.remove(word_no)
+            generate_word()
+        
+        wrong_image = tk.PhotoImage(file='images/wrong.png')
+        wrong_button = tk.Button(image=wrong_image, highlightthickness=0, command=generate_word)
+        wrong_button.image = wrong_image
+        wrong_button.grid(row=1, column=0)
+        
+        right_image = tk.PhotoImage(file='images/right.png')
+        right_button = tk.Button(image=right_image, highlightthickness=0, command=right_answer)
+        right_button.image = right_image
+        right_button.grid(row=1, column=1)
+        
+        
+        def translate():
+            flashcard.itemconfig(flashcard_title, text=data.columns[1])
+            flashcard.itemconfig(flashcard_word, text=data['English'][word_no])
+            
+        window.after(5000, translate)
+    except IndexError:
+        print('No more words!')
 
 generate_word()
 
+    
 window.mainloop()
