@@ -3,7 +3,9 @@
 - ✅ = I knew it → removes the word from the list.
 - ❌ = I didn't know it → adds it to a review list.
 - Quit button saves wrong answers to 'review_words.csv' for later practice.
-- Next time you start the app, it will load your review words."""
+- Next time you start the app, it will load your review words.
+TODO: remove words from review_words.csv after you learn them and reload the 
+      french_words.csv when empty"""
 
 import tkinter as tk
 import pandas
