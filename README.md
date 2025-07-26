@@ -23,6 +23,11 @@ To become highly proficient in Python programming by building projects and under
 | 27  | Tkinter GUI – Basics      | Started working with GUI using Tkinter, \*args, \*\*kwargs.              |
 | 28  | Pomodoro App              | Created a Pomodoro timer GUI app, added sounds with `playsound`.         |
 | 29  | Password Manager          | Built a password manager GUI app using tkinter, file I/O, and pyperclip. |
+| 30  | Error Handling + JSON     | Improved password manager using JSON file format and exception handling. |
+| 31  | Flash Card App            | Built a flashcard app to learn French using Tkinter and Pandas.          |
+| 32  | Email + Datetime          | Automated birthday email sender using SMTP and datetime logic.           |
+| 33  | API – ISS Notifier        | Built an ISS overhead notifier using Open Notify API and email alerts.   |
+| 34  | API Practice – Quiz Game  | API-based quiz game using Open Trivia DB and requests.                   |
 
 > 📌 _Updated daily with new projects and concepts learned._
 
@@ -30,16 +35,33 @@ To become highly proficient in Python programming by building projects and under
 
 ## 🔧 Tools & Concepts Covered
 
-- ✅ Python Syntax & Data Types
-- ✅ Loops and Conditionals
-- ✅ Functions and Scope
-- ✅ Object-Oriented Programming (Classes, Inheritance)
-- ✅ File Handling
-- ✅ Error Handling
-- ✅ Modules & Packages
-- ✅ GUI Programming with Tkinter
-- ✅ Data Analysis with Pandas
-- ✅ Game Development with Turtle
+### 🔣 Core Python
+- Data types, conditionals, loops
+- Functions, scope, and arguments
+- OOP – Classes and inheritance
+
+### 📁 File Operations
+- Reading & writing TXT, CSV, and JSON
+- Directory handling
+
+### 🧪 Error Management
+- Try/Except blocks
+- Raising and catching exceptions
+
+### 📊 Data & APIs
+- CSV analysis with pandas
+- REST API requests and JSON parsing
+- Handling API parameters and query strings
+
+### 📬 Automation
+- Sending emails via SMTP
+- Time-based logic with datetime
+- ISS overhead notification script
+
+### 🎨 GUI
+- Tkinter GUI basics
+- Canvas drawing
+- Input, buttons, labels, and dynamic updates
 
 ---
 
