@@ -56,7 +56,7 @@ To become highly proficient in Python programming by building projects and under
 ### 📬 Automation
 - Sending emails via SMTP
 - Time-based logic with datetime
-- ISS overhead notification script
+- Email notification script
 
 ### 🎨 GUI
 - Tkinter GUI basics
